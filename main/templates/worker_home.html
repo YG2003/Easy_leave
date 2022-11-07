@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content%}
+        <h2> Create Application</h2><br>
+        <form method = "POST">
+         {% csrf_token %} 
+        <table>
+            {{ form.as_table }}
+        </table>
+        <p><button type ="submit">Create</button></p>
+        </form>
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Description</td>
+                    <td>Date Created</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            {% for application in applications %}
+            <tr>
+                <td>{{application.title}}</td>
+                <td>{{application.description}}</td>
+                <td>{{application.date_created}}</td>
+                <td>{{application.status|capfirst}}</td>
+            {% endfor %}
+{% endblock %}  
