@@ -4,5 +4,4 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Worker)
-admin.site.register(Manager)
 admin.site.register(Application)

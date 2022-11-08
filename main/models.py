@@ -1,21 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Worker(models.Model):
     username = models.CharField(max_length = 30, verbose_name = "Username")
-    password = models.CharField(max_length = 30, verbose_name = "Password")
-    email = models.EmailField(verbose_name="Email")
-    phone = models.IntegerField(verbose_name="Phone Number")
-
-    def __str__(self):
-        return self.username
-
-class Manager(models.Model):
-    username = models.CharField(max_length = 30, verbose_name = "Username")
-    password = models.CharField(max_length = 30, verbose_name = "Password")
-    email = models.EmailField(verbose_name="Email")
-    phone = models.IntegerField(verbose_name="Phone Number")
 
     def __str__(self):
         return self.username
