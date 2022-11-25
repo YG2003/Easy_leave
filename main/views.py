@@ -36,27 +36,25 @@ def delete_application(request, pk = None):
     return redirect('pending-application')
 
 
-a = 0  
-
 def edit_details(request):
 
     if request.POST:
         form = UserDetailsForm(request.POST)
-        a = 1
+       
         if form.is_valid():
             worker = Worker.objects.get(username = request.user)
-            worker.first_name = request.POST.get('first_name', 'first_name')
-            worker.last_name = request.POST.get('last_name', 'last_name')
-            worker.phone = request.POST.get('phone', 'phone')
-            worker.email = request.POST.get('email', 'email')
-            worker.address = request.POST.get('address', 'address')
+            worker.first_name = request.POST.get("first_name")
+            worker.last_name = request.POST.get("last_name")
+            worker.phone = request.POST.get("phone")
+            worker.email = request.POST.get("email")
+            worker.address = request.POST.get("address")
             worker.save()
             messages.success(request, f"Details changed successfully")
         else:
             messages.error(request, f"Could not change details. Please enter correct details.")
-    if a == 0:
-       form = UserDetailsForm()
-    return render(request, 'main/edit_details.html', {'form': form})
+    
+    worker = Worker.objects.get(username = request.user.id)
+    return render(request, 'main/edit_details.html', {'worker': worker})
 
 
 

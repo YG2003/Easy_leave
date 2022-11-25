@@ -7,9 +7,32 @@
   <form method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
-      <table>
-      {{form|crispy}}
-      </table>
+
+      <div class="input-group">
+        <div class="input-group mb-3">
+        <span class="input-group-text">First and Last name</span>
+        <input type="text"  class="form-control" name = "first_name" value = "{{worker.first_name}}">
+        <input type="text"  class="form-control" name = "last_name" value = "{{worker.last_name}}">
+      </div>
+    </div>
+      
+      
+      
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">Mobile number</span>
+        <input type="text" class="form-control" name = "phone" value = "{{worker.phone}}" maxlength = 10>
+      </div>
+      
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon3">Email address</span>
+        <input type="Email" class="form-control" name = "email" value = "{{worker.email}}">
+      </div>
+ 
+      
+      <div class="input-group">
+        <span class="input-group-text">Address</span>
+        <textarea class="form-control" name = "address">{{worker.address}}</textarea>
+      </div>
     </fieldset>
     <div class="form-group">
       <button href="" class="btn btn-outline-info" type="submit">
