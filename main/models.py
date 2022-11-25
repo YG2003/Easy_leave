@@ -4,10 +4,16 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Worker(models.Model):
-    username = models.CharField(max_length = 30, verbose_name = "Username")
-
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length = 50, verbose_name = "First Name", default = "Pending")
+    last_name = models.CharField(max_length = 50, verbose_name = "Last Name", default = "Pending")
+    phone = models.CharField(max_length = 10, verbose_name = "Mobile number", default = "Pending")
+    email = models.EmailField(verbose_name = "Email", default = "Pending")
+    address = models.TextField(verbose_name = "Address", default = "Pending")
+    
     def __str__(self):
-        return self.username
+        worker = str(self.username)
+        return worker
 
 class Application(models.Model):
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)

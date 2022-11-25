@@ -11,5 +11,10 @@ class UserRegistrationForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2']
 
-
+class UserDetailsForm(forms.Form):
+    first_name = forms.CharField(label = "First Name", max_length = 50)
+    last_name = forms.CharField(label = "Last Name", max_length = 30)
+    phone = forms.CharField(label = "Mobile Number", max_length = 10)
+    email = forms.EmailField(label = "Email Address")
+    address = forms.CharField(label = "Permanent Address", widget = forms.Textarea(attrs={'rows':5, 'cols': 100}))
     

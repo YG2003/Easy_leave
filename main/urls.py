@@ -5,7 +5,11 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('create_application', create_application, name = "create-application"),
-    path('view_application', view_applications, name = "view-application"),
+    path('pending_application', pending_applications, name = "pending-application"),
+    path('accepted_application', accepted_applications, name = "accepted-application"),
+    path('rejected_application', rejected_applications, name = "rejected-application"),
+    path('edit_details', edit_details, name = "edit-details"),
+    path('delete_application/<int:pk>', delete_application, name = "delete-application"),
     path('check_application', check_application, name = "check-application"),
     path('accept_application/<int:pk>', accept_application, name = "accept-application"),
     path('reject_application/<int:pk>', reject_application, name = "reject-application"),

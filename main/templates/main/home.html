@@ -3,15 +3,126 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="container">
+<section class="container text-center">
+    <h3>Welcome {{username|capfirst}}</h3>
+  
  {% if username == "admin" %}
- <a href = "{% url 'check-application' %}">Check pending applications</a>
- <br><br>
- <a href = "{% url 'register' %}">Register new employee</a>
+ <hr> <br>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'check-application' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Check application
+            </h5>
+            Click to view pending applications
+          </div>
+        </div>
+      </a>
+    </div>
+ 
+    
+      <div class="col-md-3">
+        <a href="{% url 'register' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+            <div class="card-body">
+              <h5 class="card-title ">
+                Add employee
+              </h5>
+              Click to generate username and password for employee
+            </div>
+          </div>
+        </a>
+      </div>
  {% else %}
- <a href = "{% url 'create-application' %}">Send new application</a>
-<br><br>
-<a href = "{%url 'view-application' %}">View sent applications</a>
+ <hr> <br>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'create-application' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Send leave application
+            </h5>
+            Click to send leave application
+          </div>
+        </div>
+      </a>
+    </div>
+    
+  
+   
+      <div class="col-md-3">
+        <a href="{% url 'pending-application' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+            <div class="card-body">
+              <h5 class="card-title ">
+                Pending Applications
+              </h5>
+              Click to view pending applications
+            </div>
+          </div>
+        </a>
+      </div>
+
+      
+        <div class="col-md-3">
+          <a href="{% url 'accepted-application' %}">
+            <div class="card">
+              <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+              <div class="card-body">
+                <h5 class="card-title ">
+                  Accepted Applications
+                </h5>
+                Click to view accepted applications
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-3">
+          <a href="{% url 'rejected-application' %}">
+            <div class="card">
+              <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+              <div class="card-body">
+                <h5 class="card-title ">
+                  Rejected Applications
+                </h5>
+                Click to view Rejected applications
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <br>
+        <div class="col-md-3">
+          <a href="{% url 'edit-details' %}">
+            <div class="card">
+              <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+              <div class="card-body">
+                <h5 class="card-title ">
+                  Edit personal details
+                </h5>
+                Click to edit personal details
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
 {% endif %}
-</div>
+
+</section>
 {% endblock content %}
