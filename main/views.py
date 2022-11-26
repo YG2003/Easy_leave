@@ -2,14 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import *
 from .forms import *
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def home(request):
     return render(request, 'main/home.html', {'username': request.user.username})
 
-
+@login_required
 def create_application(request):
     if request.POST:
         form = CreateApplication(request.POST)
@@ -21,21 +22,25 @@ def create_application(request):
     form = CreateApplication()
     return render(request, 'main/create_application.html', {'form': form})
 
+@login_required
 def pending_applications(request):
     return render(request, 'main/pending_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.username))})
 
+@login_required
 def accepted_applications(request):
     return render(request, 'main/accepted_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.username))})
 
+@login_required
 def rejected_applications(request):
     return render(request, 'main/rejected_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.username))})
 
+@login_required
 def delete_application(request, pk = None):
     application = Application.objects.get(id = pk)
     application.delete()
     return redirect('pending-application')
 
-
+@login_required
 def edit_details(request):
 
     if request.POST:
@@ -62,10 +67,11 @@ def edit_details(request):
 
 
 
-
+@login_required
 def check_application(request):
     return render(request, 'main/check_application.html', {'applications': Application.objects.filter(status = "Pending")})
 
+@login_required
 def accept_application(request, pk = None):
    application = Application.objects.get(id = pk)
    if application.status == "Pending" or "Rejected":
@@ -73,6 +79,7 @@ def accept_application(request, pk = None):
       application.save()
    return redirect('check-application')
 
+@login_required
 def reject_application(request, pk = None):
    application = Application.objects.get(id = pk)
    if application.status == "Pending" or "Accepted":
@@ -80,7 +87,7 @@ def reject_application(request, pk = None):
       application.save()
    return redirect('check-application')
 
-
+@login_required
 def register(request):
     if request.POST:
         form = UserRegistrationForm(request.POST)
@@ -94,3 +101,14 @@ def register(request):
 
     form = UserRegistrationForm()
     return render(request, 'main/register.html', {'form':form})
+
+@login_required
+def view_employee(request):
+    workers = Worker.objects.all()
+    return render(request, 'main/view_employee.html', {'workers': workers})
+
+@login_required
+def delete_employee(request, pk=None):
+    worker = User.objects.get(username = pk)
+    worker.delete()
+    return redirect('view-employee')

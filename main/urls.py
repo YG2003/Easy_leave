@@ -17,4 +17,6 @@ urlpatterns = [
     path('', views.LoginView.as_view(template_name = "main/login.html"), name = "login"),
     path('logout', views.LogoutView.as_view(template_name = "main/logout.html"), name = "logout"),
     path('home', home, name = "home"),
+    path('view_employee', view_employee, name = "view-employee"),
+    path('delete_employee/<str:pk>', delete_employee, name = "delete-employee"),
 ]

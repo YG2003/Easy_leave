@@ -3,6 +3,17 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
+{% if user.is_authenticated %}
+
+<div class="border-top pt-3 text-center">
+  <h2>Please logout before trying to login again!!</h2>
+
+  <small class="text-muted"
+    ><a class="btn btn-danger" href="{% url 'logout' %}">Log Out</a>
+  </small>
+</div>
+
+{% else %}
 <div class="container">
   <form method="POST">
     {% csrf_token %}
@@ -17,4 +28,5 @@
     </div>
   </form>
 </div>
+{% endif %}
 {% endblock content %}

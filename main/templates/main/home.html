@@ -37,7 +37,25 @@
           </div>
         </a>
       </div>
+
+      <div class="col-md-3">
+        <a href="{% url 'view-employee' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
+            <div class="card-body">
+              <h5 class="card-title ">
+                List of employees
+              </h5>
+              Click to view details of employees
+            </div>
+          </div>
+        </a>
+      </div>
+
+
+
  {% else %}
+
  <hr> <br>
   <div class="row">
     <div class="col-md-3">
@@ -106,9 +124,9 @@
               <img class="card-img-top" src="{% static 'images/notes.jpg' %}" alt="Notes image">
               <div class="card-body">
                 <h5 class="card-title ">
-                  Edit personal details
+                  View personal details
                 </h5>
-                Click to edit personal details
+                Click to view personal details
               </div>
             </div>
           </a>
