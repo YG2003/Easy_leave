@@ -88,7 +88,7 @@ def reject_application(request, pk = None):
    return redirect('check-application')
 
 @login_required
-def register(request):
+def register_worker(request):
     if request.POST:
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
@@ -100,7 +100,7 @@ def register(request):
             messages.error(request,f"Please enter the details correctly!!")
 
     form = UserRegistrationForm()
-    return render(request, 'main/register.html', {'form':form})
+    return render(request, 'main/register_worker.html', {'form':form})
 
 @login_required
 def view_employee(request):
@@ -112,3 +112,29 @@ def delete_employee(request, pk=None):
     worker = User.objects.get(username = pk)
     worker.delete()
     return redirect('view-employee')
+
+@login_required
+def register_admin(request):
+    if request.POST:
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            new_worker = Admin(username = User.objects.get(username = request.POST.get('username','username')))
+            new_worker.save()
+            messages.success(request,f"Admin {request.POST['username']} added successfully")
+        else:
+            messages.error(request,f"Please enter the details correctly!!")
+
+    form = UserRegistrationForm()
+    return render(request, 'main/register_admin.html', {'form':form})
+
+@login_required
+def view_admin(request):
+    admins = Admin.objects.all()
+    return render(request, 'main/view_admin.html', {'admins': admins})
+
+@login_required
+def delete_admin(request, pk=None):
+    admin = User.objects.get(username = pk)
+    admin.delete()
+    return redirect('view-admin')
