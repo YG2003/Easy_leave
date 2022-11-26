@@ -5,11 +5,12 @@ from django.contrib.auth.models import User
 
 class Worker(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE)
-    first_name = models.CharField(max_length = 50, verbose_name = "First Name", default = "Pending")
-    last_name = models.CharField(max_length = 50, verbose_name = "Last Name", default = "Pending")
-    phone = models.CharField(max_length = 10, verbose_name = "Mobile number", default = "Pending")
-    email = models.EmailField(verbose_name = "Email", default = "Pending")
-    address = models.TextField(verbose_name = "Address", default = "Pending")
+    first_name = models.CharField(max_length = 50, verbose_name = "First Name")
+    last_name = models.CharField(max_length = 50, verbose_name = "Last Name")
+    phone = models.CharField(max_length = 10, verbose_name = "Mobile number")
+    email = models.EmailField(verbose_name = "Email")
+    address = models.TextField(verbose_name = "Address")
+    
     
     def __str__(self):
         worker = str(self.username)

@@ -15,7 +15,7 @@ def create_application(request):
     if request.POST:
         form = CreateApplication(request.POST)
         if form.is_valid():
-            new_application = Application(worker = Worker.objects.get(username = request.user.username), title = request.POST.get('title', 'title'), description = request.POST.get('description', 'description'))
+            new_application = Application(worker = Worker.objects.get(username = request.user.id), title = request.POST.get('title', 'title'), description = request.POST.get('description', 'description'))
             new_application.save()
         messages.success(request,f"Application sent successfully")
     
@@ -24,15 +24,15 @@ def create_application(request):
 
 @login_required
 def pending_applications(request):
-    return render(request, 'main/pending_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.username))})
+    return render(request, 'main/pending_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.id))})
 
 @login_required
 def accepted_applications(request):
-    return render(request, 'main/accepted_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.username))})
+    return render(request, 'main/accepted_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.id))})
 
 @login_required
 def rejected_applications(request):
-    return render(request, 'main/rejected_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.username))})
+    return render(request, 'main/rejected_applications.html', {'applications': Application.objects.filter(worker = Worker.objects.get(username = request.user.id))})
 
 @login_required
 def delete_application(request, pk = None):
