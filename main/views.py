@@ -8,7 +8,12 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    return render(request, 'main/home.html', {'username': request.user.username})
+    try:
+       admins = Admin.objects.get(username = request.user.id)
+    except:
+        admins = None
+
+    return render(request, 'main/home.html', {'username': request.user.username, 'admins':admins})
 
 @login_required
 def create_application(request):
