@@ -74,12 +74,12 @@ a:hover {
 
 
 .card h4 {
-    margin: 40px 40px 0 40px;
+    margin: 40px 40px 10px 40px;
     text-align: left;
 }
 
 .card h6 {
-    margin: 25px 40px 0 40px;
+    margin: 25px 40px 10px 40px;
     text-align: left;
 }
 
@@ -209,5 +209,10 @@ footer .column a+a {
 }
 
 .col-md-3 a {
-    text-decoration: none;
+    /* text-decoration: none;    */
+}
+
+.row{
+    align-items: center;
+    padding: 10px;
 }

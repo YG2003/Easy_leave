@@ -50,7 +50,8 @@
 
                 
                 {% else %}
-                <a class="dropdown-item" href="{% url 'register' %}">Add Employee</a>
+                <a class="dropdown-item" href="{% url 'register-worker' %}">Add Employee</a>
+                <a class="dropdown-item" href="{% url 'register-admin' %}">Add Administrator</a>
                 <a class="dropdown-item" href="{% url 'check-application' %}">Check Application</a>
                 <a class="dropdown-item" href="{% url 'view-employee' %}">List of employees</a>
                 <div class="dropdown-divider"></div>

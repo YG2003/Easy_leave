@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <table>
+      {{form|crispy}}
+      </table>
+    </fieldset>
+    <div class="form-group">
+      <button href="" class="btn btn-outline-info" type="submit">
+        Create Account
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

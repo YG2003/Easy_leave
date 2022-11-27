@@ -25,7 +25,7 @@
  
     
       <div class="col-md-3">
-        <a href="{% url 'register' %}">
+        <a href="{% url 'register-worker' %}">
           <div class="card">
             <img class="card-img-top" src="{% static 'images/Add employee.jpg' %}" alt="Add employee">
             <div class="card-body">
@@ -47,6 +47,34 @@
                 List of employees
               </h5>
               Click to view details of employees
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3">
+        <a href="{% url 'register-admin' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/Add Administrator.jpg' %}" alt="Add Administrator">
+            <div class="card-body">
+              <h5 class="card-title ">
+                Add Administrator
+              </h5>
+              Click to add new administrator
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-3">
+        <a href="{% url 'view-admin' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/View Administrators.png' %}" alt="View Administrators">
+            <div class="card-body">
+              <h5 class="card-title ">
+                View Administrators
+              </h5>
+              Click to view administrators
             </div>
           </div>
         </a>
