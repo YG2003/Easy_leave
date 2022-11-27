@@ -65,7 +65,10 @@
           </div>
         </a>
       </div>
-
+    </div>
+      
+    <br>
+    <div class = "row">
       <div class="col-md-3">
         <a href="{% url 'view-admin' %}">
           <div class="card">
@@ -79,8 +82,54 @@
           </div>
         </a>
       </div>
+      
+    </div>
+    <br><br>
+{% elif admins %}
+<hr> <br>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'check-application' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/check status.png' %}" alt="Check Status">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Check application
+            </h5>
+            Click to view pending applications
+          </div>
+        </div>
+      </a>
+    </div>
+ 
+    
+      <div class="col-md-3">
+        <a href="{% url 'register-worker' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/Add employee.jpg' %}" alt="Add employee">
+            <div class="card-body">
+              <h5 class="card-title ">
+                Add employee
+              </h5>
+              Click to generate username and password for employee
+            </div>
+          </div>
+        </a>
+      </div>
 
-
+      <div class="col-md-3">
+        <a href="{% url 'view-employee' %}">
+          <div class="card">
+            <img class="card-img-top" src="{% static 'images/employee details.jpg' %}" alt="Employee Details">
+            <div class="card-body">
+              <h5 class="card-title ">
+                List of employees
+              </h5>
+              Click to view details of employees
+            </div>
+          </div>
+        </a>
+      </div>
 
  {% else %}
 
