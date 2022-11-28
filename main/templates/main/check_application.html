@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base_admin.html' %}
 {% load static %}
 {% block content%}
         <br><br>
@@ -10,6 +10,7 @@
                     <td>Title</td>
                     <td>Description</td>
                     <td>Date Created</td>
+                    <td>Duration</td>
                     <td>Status</td>
                     <td> Change status</td>
                 </tr>
@@ -21,10 +22,11 @@
                 <td>{{application.title}}</td>
                 <td>{{application.description}}</td>
                 <td>{{application.date_created}}</td>
+                <td>{{application.start_date}} to {{application.end_date}}</td>
                 <td>{{application.status}}</td>
                 <td>
                     <center>
-                    <a href = "{% url 'accept-application' application.id %}">
+                    <a href = "{% url 'accept-application' application.id application.worker %}">
                         {% if application.status == "Accepted" %}
                             <input class="form-check-input" type="checkbox" value="" checked >
                             {% else %}
@@ -35,7 +37,7 @@
                             </label>
                     </a>
                     <br>
-                    <a href = "{% url 'reject-application' application.id %}">
+                    <a href = "{% url 'reject-application' application.id application.worker %}">
                         {% if application.status == "Rejected" %}
                             <input class="form-check-input" type="checkbox" value="" checked >
                             {% else %}

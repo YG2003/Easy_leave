@@ -21,6 +21,8 @@ class Application(models.Model):
     title = models.CharField(max_length = 50, verbose_name = "Title")
     description = models.TextField(verbose_name = "Description")
     date_created = models.DateField(verbose_name = "Date created", auto_now_add=True)
+    start_date = models.DateField(verbose_name = "Start date of leave", null = True)
+    end_date = models.DateField(verbose_name = "End date of leave", null = True)
     status_choices = (
         ("Pending", "Pending"),
         ("Accepted", "Accepted"),
@@ -37,3 +39,13 @@ class Admin(models.Model):
     def __str__(self):
         worker = str(self.username)
         return worker
+
+class Record(models.Model):
+    username = models.ForeignKey(User, on_delete= models.CASCADE)
+    total = models.IntegerField(verbose_name = "Total applications sent", default = 0)
+    accepted = models.IntegerField(verbose_name = "Accepted applications", default = 0)
+    rejected = models.IntegerField(verbose_name = "Rejected Applications", default = 0)
+    last_date = models.DateField(verbose_name = "Last application sent on", null=True)
+
+    def __str__(self):
+        return(str(self.username))

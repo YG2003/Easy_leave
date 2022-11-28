@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base_home.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -82,10 +82,27 @@
         </div>
       </a>
     </div>
+    
+    <br>
+    <div class="col-md-3">
+      <a href="{% url 'view-record-admin' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/View Administrators.png' %}" alt="View Administrators">
+          <div class="card-body">
+            <h5 class="card-title ">
+              View record of applications
+            </h5>
+            Click to view number of applications sent
+          </div>
+        </div>
+      </a>
+    </div>
 
   </div>
   <br><br>
+
   {% elif admins %}
+
   <hr> <br>
   <div class="row">
     <div class="col-md-3">
@@ -126,6 +143,22 @@
               List of employees
             </h5>
             Click to view details of employees
+          </div>
+        </div>
+      </a>
+    </div>
+
+
+  <br>
+    <div class="col-md-3">
+      <a href="{% url 'view-record-admin' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/View Administrators.png' %}" alt="View Administrators">
+          <div class="card-body">
+            <h5 class="card-title ">
+              View record of applications
+            </h5>
+            Click to view number of applications sent
           </div>
         </div>
       </a>
@@ -194,6 +227,10 @@
         </div>
       </a>
     </div>
+  </div>
+ 
+  <br>
+  <div class ="row">
     <div class="col-md-3">
       <a href="{% url 'edit-details' %}">
         <div class="card">
@@ -207,7 +244,24 @@
         </div>
       </a>
     </div>
+
+    <br>
+    <div class="col-md-3">
+      <a href="{% url 'view-record' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/View Administrators.png' %}" alt="View Administrators">
+          <div class="card-body">
+            <h5 class="card-title ">
+              View record of applications
+            </h5>
+            Click to view number of applications sent
+          </div>
+        </div>
+      </a>
+    </div>
+  
   </div>
+<br><br>
   {% endif %}
 
 </section>

@@ -5,6 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 class CreateApplication(forms.Form):
     title = forms.CharField(label = "Title", max_length = 30)
     description = forms.CharField(label = "Description", widget = forms.Textarea(attrs={'rows':5, 'cols': 100}))
+    start_date = forms.DateField(label = "Start Date")
+    end_date = forms.DateField(label = "End Date")
 
 class UserRegistrationForm(UserCreationForm):
     class Meta:

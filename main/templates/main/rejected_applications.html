@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+{% extends 'main/base_employee.html' %}
 {% load static %}
 {% block content%}
        
@@ -9,6 +9,7 @@
                     <td>Title</td>
                     <td>Description</td>
                     <td>Date Created</td>
+                    <td>Duration</td>
                     <td>Status</td>
                     <td>Delete application</td>
                 </tr>
@@ -20,8 +21,9 @@
                 <td>{{application.title}}</td>
                 <td>{{application.description}}</td>
                 <td>{{application.date_created}}</td>
+                <td>{{application.start_date}} to {{application.end_date}}</td>
                 <td>{{application.status|capfirst}}</td>
-                <td><a href="{% url 'delete-application' application.id %}"><i class="fa fa-trash fa-2x"></i></a>
+                <td><a href="{% url 'delete-application-rejected' application.id %}"><i class="fa fa-trash fa-2x"></i></a>
                 </td>
             </tr>
         </tbody>
