@@ -101,8 +101,10 @@ def register_worker(request):
             new_worker = Worker(username = User.objects.get(username = request.POST.get('username','username')), first_name = "Not added", last_name = "Not added", phone = "Not added", email = "Not added", address = "Not added")
             new_worker.save()
             messages.success(request,f"User {request.POST['username']} added successfully")
+            return render(request, 'main/register_worker.html', {'form':form})
         else:
             messages.error(request,f"Please enter the details correctly!!")
+            return render(request, 'main/register_worker.html', {'form':form})
 
     form = UserRegistrationForm()
     return render(request, 'main/register_worker.html', {'form':form})

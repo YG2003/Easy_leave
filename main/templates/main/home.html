@@ -4,10 +4,10 @@
 {% block content %}
 
 <section class="container text-center">
-    <h3>Welcome {{username|capfirst}}</h3>
-  
- {% if username == "admin" %}
- <hr> <br>
+  <h3>Welcome {{username|capfirst}}</h3>
+
+  {% if username == "admin" %}
+  <hr> <br>
   <div class="row">
     <div class="col-md-3">
       <a href="{% url 'check-application' %}">
@@ -22,71 +22,71 @@
         </div>
       </a>
     </div>
- 
-    
-      <div class="col-md-3">
-        <a href="{% url 'register-worker' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/Add employee.jpg' %}" alt="Add employee">
-            <div class="card-body">
-              <h5 class="card-title ">
-                Add employee
-              </h5>
-              Click to generate username and password for employee
-            </div>
-          </div>
-        </a>
-      </div>
 
-      <div class="col-md-3">
-        <a href="{% url 'view-employee' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/employee details.jpg' %}" alt="Employee Details">
-            <div class="card-body">
-              <h5 class="card-title ">
-                List of employees
-              </h5>
-              Click to view details of employees
-            </div>
-          </div>
-        </a>
-      </div>
 
-      <div class="col-md-3">
-        <a href="{% url 'register-admin' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/Add Administrator.jpg' %}" alt="Add Administrator">
-            <div class="card-body">
-              <h5 class="card-title ">
-                Add Administrator
-              </h5>
-              Click to add new administrator
-            </div>
+    <div class="col-md-3">
+      <a href="{% url 'register-worker' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/Add employee.jpg' %}" alt="Add employee">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Add employee
+            </h5>
+            Click to generate username and password for employee
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
-      
-    <br>
-    <div class = "row">
-      <div class="col-md-3">
-        <a href="{% url 'view-admin' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/View Administrators.png' %}" alt="View Administrators">
-            <div class="card-body">
-              <h5 class="card-title ">
-                View Administrators
-              </h5>
-              Click to view administrators
-            </div>
+
+    <div class="col-md-3">
+      <a href="{% url 'view-employee' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/employee details.jpg' %}" alt="Employee Details">
+          <div class="card-body">
+            <h5 class="card-title ">
+              List of employees
+            </h5>
+            Click to view details of employees
           </div>
-        </a>
-      </div>
-      
+        </div>
+      </a>
     </div>
-    <br><br>
-{% elif admins %}
-<hr> <br>
+
+    <div class="col-md-3">
+      <a href="{% url 'register-admin' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/Add Administrator.jpg' %}" alt="Add Administrator">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Add Administrator
+            </h5>
+            Click to add new administrator
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <br>
+  <div class="row">
+    <div class="col-md-3">
+      <a href="{% url 'view-admin' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/View Administrators.png' %}" alt="View Administrators">
+          <div class="card-body">
+            <h5 class="card-title ">
+              View Administrators
+            </h5>
+            Click to view administrators
+          </div>
+        </div>
+      </a>
+    </div>
+
+  </div>
+  <br><br>
+  {% elif admins %}
+  <hr> <br>
   <div class="row">
     <div class="col-md-3">
       <a href="{% url 'check-application' %}">
@@ -101,39 +101,40 @@
         </div>
       </a>
     </div>
- 
-    
-      <div class="col-md-3">
-        <a href="{% url 'register-worker' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/Add employee.jpg' %}" alt="Add employee">
-            <div class="card-body">
-              <h5 class="card-title ">
-                Add employee
-              </h5>
-              Click to generate username and password for employee
-            </div>
+
+
+    <div class="col-md-3">
+      <a href="{% url 'register-worker' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/Add employee.jpg' %}" alt="Add employee">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Add employee
+            </h5>
+            Click to generate username and password for employee
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
+    </div>
 
-      <div class="col-md-3">
-        <a href="{% url 'view-employee' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/employee details.jpg' %}" alt="Employee Details">
-            <div class="card-body">
-              <h5 class="card-title ">
-                List of employees
-              </h5>
-              Click to view details of employees
-            </div>
+    <div class="col-md-3">
+      <a href="{% url 'view-employee' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/employee details.jpg' %}" alt="Employee Details">
+          <div class="card-body">
+            <h5 class="card-title ">
+              List of employees
+            </h5>
+            Click to view details of employees
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
+    </div>
+  </div>
 
- {% else %}
+  {% else %}
 
- <hr> <br>
+  <hr> <br>
   <div class="row">
     <div class="col-md-3">
       <a href="{% url 'create-application' %}">
@@ -148,76 +149,66 @@
         </div>
       </a>
     </div>
-    
-  
-   
-      <div class="col-md-3">
-        <a href="{% url 'pending-application' %}">
-          <div class="card">
-            <img class="card-img-top" src="{% static 'images/pendingApplication.jpg' %}" alt="Pending Image">
-            <div class="card-body">
-              <h5 class="card-title ">
-                Pending Applications
-              </h5>
-              Click to view pending applications
-            </div>
+
+
+
+    <div class="col-md-3">
+      <a href="{% url 'pending-application' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/pendingApplication.jpg' %}" alt="Pending Image">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Pending Applications
+            </h5>
+            Click to view pending applications
           </div>
-        </a>
-      </div>
-
-      
-        <div class="col-md-3">
-          <a href="{% url 'accepted-application' %}">
-            <div class="card">
-              <img class="card-img-top" src="{% static 'images/Accepted.jpg' %}" alt="A Green tick">
-              <div class="card-body">
-                <h5 class="card-title ">
-                  Accepted Applications
-                </h5>
-                Click to view accepted applications
-              </div>
-            </div>
-          </a>
         </div>
-
-        <div class="col-md-3">
-          <a href="{% url 'rejected-application' %}">
-            <div class="card">
-              <img class="card-img-top" src="{% static 'images/Rejected.jpg' %}" alt="Rejected sign">
-              <div class="card-body">
-                <h5 class="card-title ">
-                  Rejected Applications
-                </h5>
-                Click to view Rejected applications
-              </div>
-            </div>
-          </a>
-        </div>
-        
-        <br>
-        <div class="col-md-3">
-          <a href="{% url 'edit-details' %}">
-            <div class="card">
-              <img class="card-img-top" src="{% static 'images/PersonalDetails.jpg' %}" alt="Image of a Diary">
-              <div class="card-body">
-                <h5 class="card-title ">
-                  View personal details
-                </h5>
-                Click to view personal details
-              </div>
-            </div>
-          </a>
-        </div>
-
-
-
-
-
-
-
-
+      </a>
     </div>
-{% endif %}
+
+
+    <div class="col-md-3">
+      <a href="{% url 'accepted-application' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/Accepted.jpg' %}" alt="A Green tick">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Accepted Applications
+            </h5>
+            Click to view accepted applications
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3">
+      <a href="{% url 'rejected-application' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/Rejected.jpg' %}" alt="Rejected sign">
+          <div class="card-body">
+            <h5 class="card-title ">
+              Rejected Applications
+            </h5>
+            Click to view Rejected applications
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-3">
+      <a href="{% url 'edit-details' %}">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'images/PersonalDetails.jpg' %}" alt="Image of a Diary">
+          <div class="card-body">
+            <h5 class="card-title ">
+              View personal details
+            </h5>
+            Click to view personal details
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+  {% endif %}
 
 </section>
 {% endblock content %}
