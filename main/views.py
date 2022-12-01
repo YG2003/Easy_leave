@@ -168,7 +168,7 @@ def register_admin(request):
             new_worker.save()
             messages.success(request,f"Admin {request.POST['username']} added successfully")
         else:
-            messages.error(request,f"Please enter the details correctly!!")
+            messages.error(request,f"Please enter the details correctly and make sure user does not exist already!!")
 
     form = UserRegistrationForm()
     return render(request, 'main/register_admin.html', {'form':form})
