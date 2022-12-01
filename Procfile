@@ -1,0 +1,1 @@
+web: gunicorn Easy_leave.wsgi --log-file -
