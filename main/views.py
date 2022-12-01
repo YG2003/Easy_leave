@@ -141,7 +141,7 @@ def register_worker(request):
             messages.success(request,f"User {request.POST['username']} added successfully")
             return render(request, 'main/register_worker.html', {'form':form})
         else:
-            messages.error(request,f"Please enter the details correctly!!")
+            messages.error(request,f"Please enter the details correctly and Make sure that user does not exist already!!")
             return render(request, 'main/register_worker.html', {'form':form})
 
     form = UserRegistrationForm()
